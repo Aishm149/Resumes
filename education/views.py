@@ -1,19 +1,71 @@
 # Create your views here.
-from .forms import CompanyForm
-from .forms import SecondaryEducationForm
+import logging
+from .forms import (
+    CompanyForm,
+    SecondaryEducationForm,
+    SignUpForm
+)
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import login, authenticate
-from django.shortcuts import render, redirect
+from django.contrib.auth import login as auth_login
+from django.contrib.auth import authenticate, logout
+from django.shortcuts import (
+    render,
+    redirect,
+    get_object_or_404,
+    HttpResponseRedirect
+)
 from django.core.urlresolvers import reverse
-from .forms import SignUpForm
 from django.utils import timezone
 from .models import Education
 from django.db.models import Q
-from .forms import SearchForm
+from .forms import SearchForm, LoginForm
 from django.contrib.auth.models import User
-from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404
 
+logger = logging.getLogger()
+
+
+def login(request):
+    if request.user.is_authenticated():
+        return HttpResponseRedirect('/profile')
+    else:
+        ctx = {}
+        ctx['form'] = LoginForm()
+        return render(request, 'login.html', ctx)
+
+
+def logout_user(request):
+    logout(request)
+    return HttpResponseRedirect('/')
+
+
+def authuser(request):
+    authdata = LoginForm(request.POST or None)
+    if request.method == 'POST':
+        if authdata.is_valid():
+            logger.debug('in views')
+            user = User.objects.get(
+                email=authdata.cleaned_data["email"],
+                username=authdata.cleaned_data["username"])
+            username = user.get_username()
+            user = authenticate(
+                username=username,
+                password=authdata.cleaned_data["password"]
+            )
+            logger.debug(user, 'authenticated')
+            if user is not None:
+                logger.debug(user)
+                if user.is_active:
+                    logger.debug(user, 'here')
+                    auth_login(request, user)
+
+                    return HttpResponseRedirect('/profile')
+        else:
+            c = {'form': authdata}
+            return render(request, 'login.html', c)
+    else:
+        authdata = LoginForm()
+        c = {'form': authdata}
+        return render(request, 'login.html', c)
 
 
 def results(request):
@@ -50,12 +102,18 @@ def signup(request):
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
-            login(request, user)
-            return redirect('home')
+            login(request)
+            return HttpResponseRedirect('/profile')
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
 
+
+
+@login_required(login_url='/login/')
+def profile(request):
+    ctx = {}
+    return render(request, 'education/first_page_after_login.html', ctx)
 
 def edu_new(request):
     if request.method == "POST":

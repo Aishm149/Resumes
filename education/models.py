@@ -37,7 +37,7 @@ class Education(models.Model):
     percentage2 = models.IntegerField(default='0')
 
     #GRADUATION DETAILS
-    yoc3 = models.IntegerField(blank=True)  # yoc3 is for graduation
+    yoc3 = models.IntegerField(blank=True, null=True)  # yoc3 is for graduation
     percentage3 = models.IntegerField(default='0', blank=True)
     college = models.CharField(max_length=100, default='N/A', blank=True)
     course = models.CharField(max_length=20, default='N/A', blank=True)
@@ -67,7 +67,7 @@ class Education(models.Model):
     linked_in = models.URLField(default='' , blank=True)
 
 
-@receiver(post_save, sender=User)
+
 def update_user_profile(sender, instance, created, **kwargs):
     if created:
         Education.objects.create(user = instance)

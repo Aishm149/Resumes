@@ -78,12 +78,8 @@ WSGI_APPLICATION = 'because.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'new_schema1',
-        'USER': 'root',
-        'PASSWORD': 'aishwarya',
-        'HOST': 'localhost',
-        'PORT': '3300',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'because.db'
     }
 }
 

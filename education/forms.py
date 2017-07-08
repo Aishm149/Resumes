@@ -1,10 +1,11 @@
-from .models import Education
-from .models import Company
+import logging
+from .models import Education, Company
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
 
-
+logger = logging.getLogger()
 #   FOR APPLICANT PROFILE
 class SignUpForm(UserCreationForm):
     Options = (('0', 'Applicant'),
@@ -46,3 +47,10 @@ class SecondaryEducationForm(forms.ModelForm):
 
 class SearchForm(forms.Form):
     search= forms.CharField(label="Search by post",max_length=250,widget=forms.TextInput(attrs={'placeholder': 'Enter the interns post required'}))
+
+class LoginForm(forms.Form):
+
+    username = forms.CharField(required=False, label=("username"))
+    email = forms.EmailField(required=True, label=("email"))
+    password = forms.CharField(label=("New password"),
+                               widget=forms.PasswordInput)
