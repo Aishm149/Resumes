@@ -4,7 +4,12 @@
 <title>Profile</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .space{
+                margin-bottom: 100px;
+         }
 
+    </style>
 
 
 
@@ -34,27 +39,6 @@
 
 
 
-  <!--  <p>User Name : {{ Profile.userName }} </p>
-    <p>Email : {{ Profile.email }}</p> -->
-
-   <!-- <h2></h2>
-    <form method="POST" class="form.secondary-education-form">{% csrf_token %}
-        {{ form.as_p }
-        {{ form.location.errors }}
-        {{ form.location }}
-        <!--<p> <label for='yoc1'>Year of Completion:</label></p>
-        <button type="submit" class="save btn btn-default">Save</button>
-    </form>
-    <h2>XII (Senior Secondary) details</h2>
-
-    -->
-
-        <!--<formset method="POST" class="form.senior-secondary-education-formset">{% csrf_token %}-->
-        <!--&lt;!&ndash;<p><label for='yoc1'>Year of Completion:</label></p>&ndash;&gt;-->
-        <!--{{ formset.as_p }}-->
-        <!--&lt;!&ndash;&ndash;&gt;-->
-        <!--<button type="submit" class="save btn btn-default">Save</button>-->
-        <!--</formset>-->
         <div class="container">
 
 
@@ -63,6 +47,7 @@
                 <div class="col-xs-6 center-block">
                     <div class="panel panel-success">
                         <div class="panel-heading">
+
                             <h2> <b>Personal Details </b></h2>
                                 <div id="personal" class="panel-body">
                                     Name : {{form.name}} {{form.name.errors}} <br/>
@@ -133,23 +118,26 @@
                 <div class="col-xs-6">
                     <div class="panel panel-success">
                         <div class="panel-heading">
-                            <h2> <b>Others </b>
-                                {{request.user.name}}
+                            <h2> <b>Others </b> </h2>
+
                                 <div id="others"  class="panel-body">
-                                    <br/>
-                                    <h3>Skills</h3><br/>
+
                                     Skills :             {{form.skills}} {{form.skills.errors}} <br/>
                                     Post applying for :  {{form.work}} {{form.work.errors}} <br/>
                                     Github link :        {{form.git_hub}} {{form.git_hub.errors}} <br/>
                                     LinkedIn Link :      {{form.linked_in}} {{form.linked_in.errors}} <br/>
 
                                 </div>
-                            </div>
 
                         </div>
+
+
                     </div>
                 </div>
-                <input type="submit" class="save btn btn-default" value="Submit" formaction=""/>
+            </div>
+
+                <input type="submit" class="save btn btn-default space" value="Next" formaction=""/>
+                <br><br><br> <br><br><br>
             </form>
         </div>
 

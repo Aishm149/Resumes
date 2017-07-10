@@ -20,17 +20,24 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-  #  url(r'^accounts/profile/(?P<id>\d+)', core_views.edu_new, name='edu_new'),
-    url(r'^login/education/(?P<name>.+)/$', core_views.profile, name='edu_new'),
+   # url(r'^accounts/profile/(?P<id>\d+)', core_views.edu_new, name='edu_new'),
+    url(r'^login/education/$', core_views.edu_new, name='edu_new'),
+   #  url(r'^login/education/', core_views.edu_editable, name='edu_editable'),
+   #   url(r'^login/education/(?P<name>.+)/$', core_views.edu_editable, name='edu_editable'),
+    url(r'^login/education/(?P<id>.+)/$', core_views.edu_new, name='edu_new'),
     url(r'^company/$', core_views.company_new, name='company_new'),
     url(r'^$', core_views.home, name='home'),
     url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
+    url(r'^signup/login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
     url(r'^logout/$', auth_views.logout, {'next_page': 'login'}, name='logout'),
     url(r'^signup/$', core_views.signup, name='signup'),
     url(r'^search/$', core_views.results, name='results'),
+    url(r'^profile/(?P<id>[0-9]+)/$', core_views.non_edit, name='non_edit'),
+    url(r'^company_no_edit/(?P<id>[0-9]+)/$', core_views.company_no_edit, name='company_no_edit'),
 
-    # url(r'education/', include('education.urls')),
-  #  url(r'^', include('LLogin.urls')),
+    # url(r'^profile/emailsent/(?P<id>.+)/$', core_views.emailSection, name= 'emailSection'),
+
+
 
 ]
 
