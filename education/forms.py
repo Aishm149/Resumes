@@ -19,6 +19,7 @@ class SignUpForm(UserCreationForm):
             'first_name': "Sign up as",
         }
 
+
 # For Company Profile
 class CompanyForm(forms.ModelForm):
     class Meta:

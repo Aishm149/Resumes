@@ -6,6 +6,7 @@ from django.dispatch import receiver
 
 
 class Company(models.Model):
+    user_id = models.IntegerField( unique=True, primary_key=True)
     name = models.CharField(max_length=100)
     about = models.CharField(max_length=1000)
     website = models.URLField()
@@ -67,11 +68,13 @@ class Education(models.Model):
     linked_in = models.URLField(default='' , blank=True)
 
 
-@receiver(post_save, sender=User)
-def update_user_profile(sender, instance, created, **kwargs):
-    if created:
-        Education.objects.create(user = instance)
-    instance.education.save()
+# @receiver(post_save, sender=User)
+# def update_user_profile(sender, instance, created, **kwargs):
+#         if created:
+#             Education.objects.create(user=instance)
+#         instance.education.save()
+#
 
-    # contact= models.USPhoneNumberField();
-    # created_date = models.DateTimeField(default=timezone.now)= ('firstName', 'lastName', 'contact')
+
+
+

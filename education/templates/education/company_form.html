@@ -16,38 +16,25 @@
     {% extends 'education/base.html' %}
     {% block content %}
 
+    <nav class="navbar navbar-inverse ">
 
+                    <div class="container">
+                        <ul class="nav navbar-nav">
+                                <li><a href="#company"> Company Details </a></li>
 
+                            </ul>
 
+                    </div>
 
-  <!--  <p>User Name : {{ Profile.userName }} </p>
-    <p>Email : {{ Profile.email }}</p> -->
-
-   <!-- <h2></h2>
-    <form method="POST" class="form.secondary-education-form">{% csrf_token %}
-        {{ form.as_p }
-        {{ form.location.errors }}
-        {{ form.location }}
-        <!--<p> <label for='yoc1'>Year of Completion:</label></p>
-        <button type="submit" class="save btn btn-default">Save</button>
-    </form>
-    <h2>XII (Senior Secondary) details</h2>
-    -->
-
-        <!--<formset method="POST" class="form.senior-secondary-education-formset">{% csrf_token %}-->
-        <!--&lt;!&ndash;<p><label for='yoc1'>Year of Completion:</label></p>&ndash;&gt;-->
-        <!--{{ formset.as_p }}-->
-        <!--&lt;!&ndash;&ndash;&gt;-->
-        <!--<button type="submit" class="save btn btn-default">Save</button>-->
-        <!--</formset>-->
+        </nav>
         <div class="container">
-            <form method="POST" class="form.company-form">{% csrf_token %}
+            <form method="POST" class="form.secondary-education-form">{% csrf_token %}
             <div class="row">
                 <div class="col-xs-6 center-block">
                     <div class="panel panel-success">
                         <div class="panel-heading">
                             <h2> <b>Company Details </b></h2>
-                                <div id="personal">
+                                <div id="company">
                                     Organization Name : {{form.name}} {{form.name.errors}} <br/>
                                     About : {{form.about}} {{form.about.errors}} <br/>
                                     Website Link : {{form.website}} {{form.website.errors}} <br/>
@@ -58,7 +45,7 @@
                 </div>
             </div>
 
-               <input type="submit" class="save btn btn-default" value="Submit" formaction="edit/"/>
+               <input type="submit" class="save btn btn-default" value="Submit" formaction="/company_no_edit/"/>
             </form>
         </div>
 

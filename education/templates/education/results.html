@@ -21,18 +21,10 @@
 {% for ob in q_list %}
 
 <tr>
-
-
-
             <td class=" col-md-1">{{ob.name}}</td>
             <td class=" col-md-2">{{ob.work}}</td>
             <td class=" col-md-3">{{ob.skills}}</td>
-            <td class="col-md-3"> <button class="save btn btn-default"> Visit Profile</button></td>
-
-
-
-
-
+            <td class="col-md-3"> <a class="btn btn-primary" href=candidate_profile_{{ob.user_id}}/ > Visit Profile</a></td>
 </tr>
 {% endfor%}
 </table>
