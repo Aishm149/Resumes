@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Profile</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+            </script>
+
+</head>
+<body>
+    {% extends 'education/base.html' %}
+    {% block content %}
+
+        <div class="container space_from_top">
+            <form method="POST" class="form.company-form">{% csrf_token %}
+            <div class="row row-centered">
+                <div class="col-xs-6 col-centered center-block">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h2> <b>Company Details </b></h2><br/>
+                                <div id="personal">
+                                    <label>Organization Name : </label><p> {{form.name}} {{form.name.errors}} </p>
+                                    <label>About :</label><p>  {{form.about}} {{form.about.errors}} </p>
+                                    <label>Website Link :</label><p>  {{form.website}} {{form.website.errors}} </p>>
+
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="row row-centered">
+                    <div class="col-centered col-xs-2">
+               <input type="submit" class="save btn btn-success space" value="Submit" formaction="edit/"/>
+                    </div></div>
+            </form>
+        </div>
+
+
+    {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load staticfiles %}
+        <title> All About Resumes </title>
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css">
+        <script type="text/javascript" src="bootstrap/js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+            </script>
+
+        <style>
+            body{
+                background-image: url(% static 'img/1.jpg' %);
+            }
+            .navbar-nav{
+                color:	#F8F8F8;
+            }
+            
+            .left{
+                float:left;
+                margin-left: 20%;
+            }
+            .right{
+                float:right;
+                margin-right: 20%;
+            }
+            #banner_image{
+                padding-top: 75px;
+                padding-bottom: 50px;
+                text-align: center;
+                color: #f8f8f8;
+                background: url('images/intro-bg_1.jpg') no-repeat center center;
+                background-attachment : fixed;
+                
+                background-size: contain;
+            }
+            #banner_content{
+                    max-height: 200px;
+                    font-family: 'Lato', sans-serif;
+                    position: relative;
+                    padding-top: 6%; 
+                    padding-bottom: 6%;
+                    margin-top: 10%;
+                    margin-bottom: 10%;
+                    background-color: rgba(0, 0, 0, 0.7);    
+                    max-width: 500px; 
+                }
+                h1{
+                    margin-top:-5%;
+                }
+                .navbar-nav{
+                    font-family: 'Lato', sans-serif;
+                }    
+                
+            footer{
+        
+                    padding: 10px 0;
+                    background-color: #101010;
+                    color:#9d9d9d;
+                    bottom: 0;
+                    width: 100%; 
+                    position: fixed;
+                }
+        </style>
+    </head>
+    <body  style="background-image: url({%static 'img/2.jpeg' %}); background-size:cover; background-position: 20% 47%; ">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a href="#" class="navbar-brand">All About Resumes</a>
+                        </div>
+                        <div class="collapse navbar-collapse" id="myNavbar">
+         
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href= "signup/"> <span class="glyphicon glyphicon-user"> Sign up </span></a></li>
+                                <li><a href="login/"> <span class="glyphicon glyphicon-log-in"> Login </span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+        
+        
+        
+        
+        <div id="banner_image">
+             <div class= "container">
+                 <center>
+                 <div id="banner_content">
+                     <h1> All About Resumes </h1>
+                     <br><br>
+                     <a href="login/"  class = "btn btn-primary btn-lg active" > Login to the Website </a>
+                     
+                 </div>
+                 </center>
+            </div>
+        </div> 
+        
+        
+        
+        <footer>
+            <div class="container">
+                <center>
+                    <p>  Copyright © </p> 
+                </center>
+            </div>
+        </footer>
+        
+    </body>
+</html>
+        
+            

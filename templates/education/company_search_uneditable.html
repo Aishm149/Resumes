@@ -1,0 +1,113 @@
+{% extends 'education/base.html' %}
+    {% block content %}
+
+<div class="container space_from_top">
+
+        {% for q1 in queryset %}
+            {% csrf_token %}
+            <div class="row row-centered">
+                <div class="col-xs-6 col-centered center-block">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+
+                            <h2> <b>Personal Details </b></h2>
+                                <div id="personal" class="panel-body ">
+                                    <label class="a">Name : </label><p> {{q1.name}}  </p>
+                                    <label class="a">Address :</label><p> {{q1.homeadd}} </p>
+                                    <label class="a">Date of Birth :</label><p>{{q1.dob}}  </p>
+                                    <label class="a">Contact : </label><p>{{q1.contact}}  </p>
+                                    <label class="a">Gender : </label> <p>{{q1.gender}}  </p>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-centered">
+                <div class=" col-xs-6 center-block col-centered">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h2> <b>Educational qualifications</b> </h2>
+                                <div id="education"  class="panel-body ">
+                                <h3>Secondary Education</h3><br/>
+
+                                    <label class="a">Year of Completion :</label><p> {{q1.yoc1}} </p>
+                                    <label class="a">Board : </label><p>{{q1.board1}}  </p>
+                                    <label class="a">Percentage/CGPA Obtained : </label><p>{{q1.percentage1}} </p>
+
+                                    <br/>
+                                <h3>Senior Secondary Education</h3><br/>
+                                    <label class="a">Year of Completion :  </label><p>      {{q1.yoc2}}  </p>
+                                    <label class="a">Board :               </label><p>   {{q1.board2}}  </p>
+                                    <label class="a">Percentage:           </label><p>      {{q1.percentage2}} </p>
+
+
+                                <h3>Graduation </h3> <br/>
+                                    <label class="a"> Year of Completion :    </label><p>   {{q1.yoc3}} </p>
+                                    <label class="a">   Percentage Obtained : </label><p>    {{q1.percentage3}} </p>
+                                    <label class="a">  College : </label><p> {{q1.college}} </p>
+                                    <label class="a">Course (Specialization) : </label><p> {{q1.course}}  </p>
+                                </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-centered">
+                <div class=" col-xs-6 col-centered center-block">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h2> <b>Experience</b> </h2>
+                                <div id="experience"  class="panel-body ">
+                                    <h3>Internship Details</h3><br/>
+                                    <label class="a"> Company :  </label><p>          {{q1.company_i}}  </p>
+                                    <label class="a"> Duration : </label><p>          {{q1.duration}}  </p>
+                                    <label class="a"> Profile :  </label><p>          {{q1.profile_i}}  </p>
+                                    <h3>Internship Details</h3><br/>
+                                   <label class="a"> Company :   </label><p>         {{q1.company_i2}}  </p>
+                                    <label class="a"> Duration :  </label><p>         {{q1.duration2}}  </p>
+                                    <label class="a"> Profile :    </label><p>        {{q1.profile_i2}} </p>
+                                    <h3>Project Details</h3><br/>
+                                    <label class="a"> Title :       </label><p>       {{q1.title_p}}  </p>
+                                    <label class="a"> Description : </label><p>       {{q1.description_p}} </p>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            <div class="row row-centered">
+                <div class=" col-xs-6 col-centered center-block">
+                    <div class="panel panel-success ">
+                        <div class="panel-heading">
+                            <h2> <b>Others </b> </h2>
+                                <div id="others"  class="panel-body ">
+                                <label class="a">   Skills :          </label><p>     {{q1.skills}}  </p>
+                                <label class="a">  Post applying for :</label><p>   {{q1.work}}  </p>
+                                <label class="a">  Github link :      </label><p>   {{q1.git_hub}} </p>
+                               <label class="a">  LinkedIn Link :    </label><p>   {{q1.linked_in}}</p>
+                                </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row row-centered ">
+                    <div class="col-centered col-xs-2">
+            <a class="btn btn-success space_from_top right cols" href="/login_success/candidate_shortlisted/{{q1.user_id}}"> Shortlist</a>
+                    </div>
+                    </div>
+
+                <br><br><br> <br><br><br>
+        {% endfor %}
+        </div>
+
+
+    {% endblock %}
+</body>
+
+</html>

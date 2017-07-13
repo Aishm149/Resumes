@@ -1,0 +1,8 @@
+Congratulations!
+
+You have been shortlisted by {{username}}. The details of the company are as follows:
+About: {{about}}
+
+Website: {{website}}
+
+You can contact the company's representative at {{email}} .

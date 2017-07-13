@@ -1,0 +1,36 @@
+{% extends 'education/base.html' %}
+    {% block content %}
+
+<div class ="container searchbar">
+<form action="{% url 'results' %}"  method="get">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit" />
+</form>
+
+</form>
+</div>
+
+    <div class="container-fluid" >
+    <form  method="get">
+    <br>
+    <div class="side"><blockquote><p><i>
+        You have searched for interns available for the post {{query }}</i></p></blockquote>
+    </div>
+
+    <table class="table result_final table-bordered table-striped table-hover table-success ">
+
+{% for ob in q_list %}
+
+<tr class="aligning">
+            <td class=" col-md-3">{{ob.name}}</td>
+            <td class=" col-md-3">{{ob.work}}</td>
+            <td class=" col-md-3">{{ob.skills}}</td>
+            <td class="col-md-3"> <a class="btn btn-primary" href=candidate_profile_{{ob.user_id}}/ > Visit Profile</a></td>
+</tr>
+{% endfor%}
+</table>
+</form>
+</div>
+
+  {% endblock %}

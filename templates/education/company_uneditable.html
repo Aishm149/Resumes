@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Profile</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+            </script>
+
+</head>
+<body>
+    {% extends 'education/base.html' %}
+    {% block content %}
+
+        <div class="container space_from_top">
+
+            {% for q in queryset %}
+                <div class="row row-centered">
+                <div class="col-xs-6 col-centered center-block">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h2> <b>Company Details </b></h2><br/>
+                                <div id="personal">
+                                    <label class="a">Organization Name : </label><p> {{q.name}} </p>
+                                    <label class="a">About :</label><p>  {{q.about}}  </p>
+                                    <label class="a">Website Link :</label><p>  {{q.website}}  </p>>
+
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="row row-centered ">
+                    <div class="col-centered col-xs-2">
+            <a class="btn btn-success space_from_top right cols" href="/login_success/company/"> Edit </a>
+                    </div>
+                    <div class="col-centered col-xs-2">
+            <a class="btn btn-success space_from_top right cols" href="/login_success/search/"> Search for Interns </a>
+                    </div>
+                    </div>
+            {% endfor %}
+        </div>
+
+
+    {% endblock %}
+</body>
+
+</html>
