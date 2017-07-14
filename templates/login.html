@@ -1,0 +1,38 @@
+{% extends 'base1.html' %}
+
+{% block content %}
+  <div class="logina">
+          <h2>Log in to All About Resumes</h2>
+
+          {% if form.errors %}
+            <p style="color: red">Your username and password didn't match. Please try again.</p>
+          {% endif %}              <br/>
+                                  <form action="">
+                                      <input type="radio" name="as" value="male" checked> Applicant &nbsp; &nbsp;
+                                      <input type="radio" name="as" value="female"> Company
+                                  </form> <br/>
+          <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ next }}" />
+            {% for field in form %}
+              <p>
+                {{ field.label_tag }}<br>
+                {{ field }}<br>
+                {% for error in field.errors %}
+                  <p style="color: red">{{ error }}</p>
+                {% endfor %}
+                {% if field.help_text %}
+                  <p><small style="color: grey">{{ field.help_text }}</small></p>
+                {% endif %}
+              </p>
+            {% endfor %}
+
+            <button type="submit" action="base.html">Log in</button><br/> <br/>
+            <a href="{% url 'signup' %}">New to All About Resumes? Sign up</a> <br/> <br/>
+            <a class=" space_from_top cols" href="/login/forgot"> Forgot your password? </a>
+
+          </form>
+    </div>
+
+
+{% endblock %}
